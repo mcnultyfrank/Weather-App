@@ -6,8 +6,11 @@ $primary-color: #35343B;
 $cold-background: linear-gradient(202deg, rgba(208,229,242,1) 40%, rgba(179,218,227,1) 55%);
 $rain-background :linear-gradient(202deg, rgba(105,158,191,1) 0%, rgba(29,82,115,1) 88%);
 $hot-background: radial-gradient(circle, rgba(254,149,66,1) 10%, rgba(255,133,71,1) 53%);
+
 .background{
     background: $rain-background;
+    width: 100vw;
+    height: 100vh;
 }
     .banner{
         position: relative;
@@ -56,8 +59,7 @@ img{
    font-size: 250px;
 }
     article{
-        width: 100vw;
-        height: 100vh;
+
         padding-top: 10vh;
         padding-bottom: 20vh;
         display: flex;
@@ -71,7 +73,10 @@ img{
         h2{
             font-size: 30px;
         }
+
     }
+
+
 
 
 
