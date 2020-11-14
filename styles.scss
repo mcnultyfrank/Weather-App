@@ -1,0 +1,77 @@
+*{
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+$primary-color: #35343B;
+$cold-background: linear-gradient(202deg, rgba(208,229,242,1) 40%, rgba(179,218,227,1) 55%);
+$rain-background :linear-gradient(202deg, rgba(105,158,191,1) 0%, rgba(29,82,115,1) 88%);
+$hot-background: radial-gradient(circle, rgba(254,149,66,1) 10%, rgba(255,133,71,1) 53%);
+.background{
+    background: $rain-background;
+}
+    .banner{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        border-bottom: 1px solid $primary-color;
+        .logInIcon{
+            position: absolute;
+            right: 1%;
+            bottom: 30%;
+            cursor: pointer;
+            &:hover{
+                color: blue;
+            }
+        }
+        input{
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            font-size: 1.2rem;
+        }
+        input::placeholder{
+            transition: 0.1s;
+            opacity: 0.8;
+            color: $primary-color;            
+        }
+        input:focus::placeholder{
+            border: none;
+            font-size: 0.5rem;
+            transform: translate(0px, -20px);
+
+        }
+    }
+
+img{
+    z-index: 999;
+    image-rendering: optimizeQuality;
+    bottom: 0;
+    color: $primary-color;
+}
+.weatherIcon{
+   font-size: 250px;
+}
+    article{
+        width: 100vw;
+        height: 100vh;
+        padding-top: 10vh;
+        padding-bottom: 20vh;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        color: $primary-color;
+        h1{
+            font-size: 70px;
+        }
+        h2{
+            font-size: 30px;
+        }
+    }
+
+
+
