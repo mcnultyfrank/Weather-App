@@ -5,23 +5,19 @@ const locOutput = document.querySelector(".locationOutput");
 const conditionOutput = document.querySelector(".conditionOutput");
 const body = document.querySelector(".body");
 const country = document.querySelector(".countryOutput");
-// windspeedOutput = document.querySelector(".windspeedOutput");
 const weatherIcon = document.querySelector(".weatherIcon");
-
-
 
 
 const getApiData = (location) => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=`+ location +`&appid=666c971c72301aa3b8f1051cc87fced8`)
     .then((res) => res.json())
     .then((response) => {
-      kelvinToCelcius = response.main.temp - 273.15;      
+      const kelvinToCelcius = response.main.temp - 273.15;      
       tempOutput.innerHTML = kelvinToCelcius.toFixed(1) + ("°C");
       locOutput.innerHTML = response.name;
-      // windspeedOutput.innerHTML = response.wind.speed + (" Mph");
       conditionOutput.innerHTML = response.weather[0].main;     
       country.innerHTML = response.sys.country;
-      console.log(response);
+      
 
       if (kelvinToCelcius >= 20)
       background.style.background = "radial-gradient(circle, rgba(249,127,59,1) 0%, rgba(232,97,67,1) 98%)"
@@ -57,7 +53,6 @@ const getApiData = (location) => {
       else if (response.weather[0].id >= 801 & response.weather[0].id <= 804){
         weatherIcon.src = "http://openweathermap.org/img/wn/03d@2x.png";
       }
-
     })
   } 
   textInput.addEventListener(("keyup"), e => {
@@ -65,8 +60,8 @@ const getApiData = (location) => {
       getApiData(e.target.value);
       textInput.value = "";
     }
-    console.log(getApiData);
   })
+
   
 
 
