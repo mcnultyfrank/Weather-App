@@ -1,23 +1,30 @@
 "use strict";
 
-background = document.querySelector(".background");
-textInput = document.querySelector(".textInput");
-tempOutput = document.querySelector(".tempOutput");
-locOutput = document.querySelector(".locationOutput");
-conditionOutput = document.querySelector(".conditionOutput");
-body = document.querySelector(".body"); // windspeedOutput = document.querySelector(".windspeedOutput");
-
-weatherIcon = document.querySelector(".weatherIcon");
+var background = document.querySelector(".background");
+var textInput = document.querySelector(".textInput");
+var tempOutput = document.querySelector(".tempOutput");
+var locOutput = document.querySelector(".locationOutput");
+var conditionOutput = document.querySelector(".conditionOutput");
+var body = document.querySelector(".body");
+var country = document.querySelector(".countryOutput");
+var weatherIcon = document.querySelector(".weatherIcon");
+var sunrise = document.querySelector(".sunriseOutput");
+var sunset = document.querySelector(".sunsetOutput");
 
 var getApiData = function getApiData(location) {
   fetch("https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=666c971c72301aa3b8f1051cc87fced8").then(function (res) {
     return res.json();
   }).then(function (response) {
-    kelvinToCelcius = response.main.temp - 273.15;
+    var kelvinToCelcius = response.main.temp - 273.15;
     tempOutput.innerHTML = kelvinToCelcius.toFixed(1) + "°C";
-    locOutput.innerHTML = response.name; // windspeedOutput.innerHTML = response.wind.speed + (" Mph");
-
+    locOutput.innerHTML = response.name;
     conditionOutput.innerHTML = response.weather[0].main;
+    country.innerHTML = response.sys.country;
+    console.log(response);
+    var sunriseUTC = response.sys.sunrise;
+    var date = new Date(sunriseUTC * 1000);
+    var timestr = date.toLocaleTimeString();
+    console.log(date, timestr);
     if (kelvinToCelcius >= 20) background.style.background = "radial-gradient(circle, rgba(249,127,59,1) 0%, rgba(232,97,67,1) 98%)";else if (kelvinToCelcius < 20 & kelvinToCelcius > 16 & conditionOutput.innerHTML != "Rain") background.style.background = "linear-gradient(90deg, rgba(242,233,107,1) 23%, rgba(242,190,92,1) 98%)";else if (kelvinToCelcius <= 16 & conditionOutput.innerHTML != "Rain") background.style.background = "linear-gradient(202deg, rgba(208,229,242,1) 40%, rgba(179,218,227,1) 55%)";else if (kelvinToCelcius < 25 & conditionOutput.innerHTML == "Rain") {
       background.style.background = "linear-gradient(90deg, rgba(29,82,115,1) 44%, rgba(1,40,64,1) 91%)";
     }
@@ -47,6 +54,4 @@ textInput.addEventListener("keyup", function (e) {
     getApiData(e.target.value);
     textInput.value = "";
   }
-
-  console.log(getApiData);
 });

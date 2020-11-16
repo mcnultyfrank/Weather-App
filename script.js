@@ -6,6 +6,9 @@ const conditionOutput = document.querySelector(".conditionOutput");
 const body = document.querySelector(".body");
 const country = document.querySelector(".countryOutput");
 const weatherIcon = document.querySelector(".weatherIcon");
+const sunrise = document.querySelector(".sunriseOutput");
+const sunset = document.querySelector(".sunsetOutput");
+
 
 
 const getApiData = (location) => {
@@ -17,8 +20,17 @@ const getApiData = (location) => {
       locOutput.innerHTML = response.name;
       conditionOutput.innerHTML = response.weather[0].main;     
       country.innerHTML = response.sys.country;
-      
+      console.log(response);
+        const sunriseUTC = response.sys.sunrise;
+        const date = new Date ( sunriseUTC * 1000);
+        const timestr = date.toLocaleTimeString();
+        console.log(date, timestr);
 
+          
+        
+
+    
+      
       if (kelvinToCelcius >= 20)
       background.style.background = "radial-gradient(circle, rgba(249,127,59,1) 0%, rgba(232,97,67,1) 98%)"
       else if (kelvinToCelcius < 20 & kelvinToCelcius > 16 & conditionOutput.innerHTML != "Rain")
