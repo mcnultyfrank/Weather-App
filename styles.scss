@@ -128,22 +128,27 @@ img{
 
     @media only screen and (max-width: 700px) {
         article{
-            grid-gap: 0vw;
+            border: none;
+            .location {
+                grid-column: 1/7;
+                grid-row: 1;
+                border: none;
 
-            // .location {
-            //     grid-column: 1/7;
-            //     grid-row: 1;
     
-            // }
-            // .temp {
-            //     grid-column: 1/7;
-            //     grid-row: 3/4;
-            // }
-            // .condition {
-            //     grid-column: 1/7;
-            //     grid-row: 4/8;
+            }
+            .temp {
+                border: none;
 
-            // }
+                grid-column: 1/7;
+                grid-row: 2/4;
+            }
+            .condition {
+                border: none;
+
+                grid-column: 1/7;
+                grid-row: 4/8;
+
+            }
         }
 
     }
