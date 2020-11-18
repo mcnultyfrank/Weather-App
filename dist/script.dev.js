@@ -24,7 +24,18 @@ var getApiData = function getApiData(location) {
     var sunriseUTC = response.sys.sunrise;
     var date = new Date(sunriseUTC * 1000);
     var timestr = date.toLocaleTimeString();
-    console.log(date, timestr);
+    console.log(timestr);
+    var promise = new Promise(function (resolve, reject) {
+      resolve(sunset.innerHTML = date.toLocaleTimeString());
+      reject(new Error('failed to get'));
+    });
+    promise.then(function (time) {
+      console.log(time);
+    })["catch"](function (err) {
+      return console.log(err.message);
+    }); // if(locOutput.innerHTML = ""){
+    //   background.style.display = "none"
+    // }
 
     if (kelvinToCelcius >= 20) {
       background.style.backgroundSize = "cover";

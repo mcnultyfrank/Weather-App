@@ -24,13 +24,19 @@ const getApiData = (location) => {
         const sunriseUTC = response.sys.sunrise;
         const date = new Date ( sunriseUTC * 1000);
         const timestr = date.toLocaleTimeString();
-        console.log(date, timestr);
+        console.log(timestr);
+        const promise = new Promise ((resolve, reject) => {
+          resolve(sunset.innerHTML= date.toLocaleTimeString())
+          reject(new Error('failed to get'));
+        })
+        promise.then(time => {
+          console.log(time);
+        })
+        .catch(err => console.log(err.message));
 
-          
-        
-
-    
-      
+      // if(locOutput.innerHTML = ""){
+      //   background.style.display = "none"
+      // }
       if (kelvinToCelcius >= 20){
         background.style.backgroundSize = "cover";
         background.style.backgroundImage = "url('./pexels-brett-sayles-1431822.jpg')";
