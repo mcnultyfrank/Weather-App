@@ -31,14 +31,20 @@ const getApiData = (location) => {
 
     
       
-      if (kelvinToCelcius >= 20)
-      background.style.background = "radial-gradient(circle, rgba(249,127,59,1) 0%, rgba(232,97,67,1) 98%)"
-      else if (kelvinToCelcius < 20 & kelvinToCelcius > 16 & conditionOutput.innerHTML != "Rain")
-      background.style.background = "linear-gradient(90deg, rgba(242,233,107,1) 23%, rgba(242,190,92,1) 98%)"
-      else if (kelvinToCelcius <= 16 & conditionOutput.innerHTML != "Rain")
-      background.style.background = "linear-gradient(202deg, rgba(208,229,242,1) 40%, rgba(179,218,227,1) 55%)"
+      if (kelvinToCelcius >= 20){
+        background.style.backgroundSize = "cover";
+        background.style.backgroundImage = "url('./pexels-brett-sayles-1431822.jpg')";
+      }
+      else if (kelvinToCelcius <= 20 && conditionOutput.innerHTML != "Rain" && conditionOutput.innerHTML != "Clouds"){
+      background.style.backgroundSize = "cover";
+      background.style.backgroundImage = "url('./pexels-brett-sayles-1431822.jpg')"
+    }
+    else if (kelvinToCelcius <= 20 && conditionOutput.innerHTML == "Clouds"){
+      background.style.backgroundSize = "cover";
+      background.style.backgroundImage = "url('./cloudy.jpg')"
+    }
       else if (kelvinToCelcius < 25 & conditionOutput.innerHTML == "Rain"){
-        background.style.background = "linear-gradient(90deg, rgba(29,82,115,1) 44%, rgba(1,40,64,1) 91%)"
+        background.style.backgroundImage = "url('./pexels-johannes-plenio-2259232.jpg')";
       }
 
       if (response.weather[0].id >= 200 & response.weather[0].id <= 232){
