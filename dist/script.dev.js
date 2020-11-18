@@ -33,9 +33,7 @@ var getApiData = function getApiData(location) {
       console.log(time);
     })["catch"](function (err) {
       return console.log(err.message);
-    }); // if(locOutput.innerHTML = ""){
-    //   background.style.display = "none"
-    // }
+    });
 
     if (kelvinToCelcius >= 20) {
       background.style.backgroundSize = "cover";
@@ -73,6 +71,7 @@ var getApiData = function getApiData(location) {
 textInput.addEventListener("keyup", function (e) {
   if (e.keyCode === 13) {
     getApiData(e.target.value);
+    document.querySelector(".container").style.display = "contents";
     textInput.value = "";
   }
 });

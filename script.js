@@ -34,9 +34,6 @@ const getApiData = (location) => {
         })
         .catch(err => console.log(err.message));
 
-      // if(locOutput.innerHTML = ""){
-      //   background.style.display = "none"
-      // }
       if (kelvinToCelcius >= 20){
         background.style.backgroundSize = "cover";
         background.style.backgroundImage = "url('./pexels-brett-sayles-1431822.jpg')";
@@ -82,6 +79,7 @@ const getApiData = (location) => {
   textInput.addEventListener(("keyup"), e => {
     if (e.keyCode === 13){
       getApiData(e.target.value);
+      document.querySelector(".container").style.display = "contents";
       textInput.value = "";
     }
   })
