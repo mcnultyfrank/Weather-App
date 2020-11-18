@@ -5,12 +5,8 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 $primary-color: #35343B;
-$cold-background: linear-gradient(202deg, rgba(208,229,242,1) 40%, rgba(179,218,227,1) 55%);
-$rain-background :linear-gradient(202deg, rgba(105,158,191,1) 0%, rgba(29,82,115,1) 88%);
-$hot-background: radial-gradient(circle, rgba(254,149,66,1) 10%, rgba(255,133,71,1) 53%);
 
 .background{
-    background: $rain-background;
     background-image: url("./pexels-brett-sayles-1431822.jpg");
     background-size: cover;
     width: 100vw;

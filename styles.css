@@ -6,7 +6,6 @@
 }
 
 .background {
-  background: linear-gradient(202deg, #699ebf 0%, #1d5273 88%);
   background-image: url("./pexels-brett-sayles-1431822.jpg");
   background-size: cover;
   width: 100vw;
