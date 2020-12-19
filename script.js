@@ -49,7 +49,7 @@ const getApiData = (location) => {
       else if (kelvinToCelcius < 25 & conditionOutput.innerHTML == "Rain"){
         background.style.backgroundImage = "url('./pexels-johannes-plenio-2259232.jpg')";
       }
-
+ 
       if (response.weather[0].id >= 200 & response.weather[0].id <= 232){
         weatherIcon.src = "http://openweathermap.org/img/wn/11d@2x.png";
       }
